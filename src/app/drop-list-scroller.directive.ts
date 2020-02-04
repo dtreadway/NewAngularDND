@@ -1,4 +1,4 @@
-import { Directive, HostListener, NgZone, AfterViewInit, OnInit, OnDestroy } from "@angular/core";
+import { Directive, HostListener, NgZone, AfterViewInit, OnDestroy } from "@angular/core";
 
 import { CdkDropList } from "@angular/cdk/drag-drop";
 
@@ -9,7 +9,7 @@ import { Cancelable, debounce } from "lodash";
 @Directive({
   selector: "[dropListScroller]"
 })
-export class DropListScrollerDirective implements AfterViewInit, OnInit, OnDestroy {
+export class DropListScrollerDirective implements AfterViewInit, OnDestroy {
 
   private animationFrame: number | undefined;
 
@@ -52,7 +52,7 @@ export class DropListScrollerDirective implements AfterViewInit, OnInit, OnDestr
     });
   }
 
-  @HostListener('mouseover', ['$event.target.id']) onClick(id: any) {
+  @HostListener('mouseover', ['$event.target.id']) ontouchmove(id: any) {
     this._elementRef._draggables.forEach(item => {
       this._subscriptions.add(
         item._dragRef.moved.subscribe(event => {
